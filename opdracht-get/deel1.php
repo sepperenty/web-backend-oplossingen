@@ -52,7 +52,7 @@ Volgens Australische media is woensdag nog een andere schoolgenoot van de dader 
 //", "<img src='img/zandDam.jpg'>", "Dit is een foto van de zandbank");
 $eenArtikel = false;
 $geenArtikel = false;
-
+$gevondenIn ="Het woord is gevonden in ";
 
 if(isset($_GET["id"]))
 {
@@ -97,12 +97,10 @@ if(isset($_GET["btnZoek"]))
 
 		$artikkels = $newArray;
 	}
+
 	
 }
-else
-{
-	echo "niets gevonden";
-}
+
 
 
 
