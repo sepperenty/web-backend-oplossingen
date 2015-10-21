@@ -1,0 +1,16 @@
+<body>
+		<div class="artikels">
+
+			<?php foreach ($artikels as $key => $value):?>
+
+			<div class="artikel">
+					<h2><?=$value["title"]?></h2>
+					<p><?=$value["text"]?></p>
+					<p><?=$value["tags"]?></p>
+					<a href="opdracht-include-require.php?leesMeer=<?=$key?>">lees meer</a>
+			</div>
+			<?php endforeach ?>
+		</div>
+
+
+</body>
