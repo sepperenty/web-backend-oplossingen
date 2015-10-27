@@ -26,6 +26,8 @@
 			
 			$cssLinks	=	$this->createCssLink($filesArray);
 
+			echo $cssLinks;
+
 			include "html/" . $this->header;
 
 		}
@@ -38,10 +40,10 @@
 
 		public function buildFooter()
 		{
-			$jsDir = dirname(dirname(__FILE__)."/js/");
+			$jsDir = dirname(dirname(__FILE__))."/js/";
 			$filesArray = $this->findFiles($jsDir, 'js');
 			$fileLink = $this->createJsLink($filesArray);
-
+			echo $fileLink;
 			include "html/" . $this->footer;
 		}
 
