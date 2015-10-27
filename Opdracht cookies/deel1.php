@@ -3,10 +3,6 @@
 	$file = file("auth.txt");
 	$fileDev = explode(",", $file[0]);
 	$message = "";
-	/*echo $fileDev[0];
-	echo $fileDev[1];
-	*/
-	
 
 	/*Validate after button click*/
 	if(isset($_POST["validate"]))
