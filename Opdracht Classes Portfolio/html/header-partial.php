@@ -1,11 +1,10 @@
 <!doctype html>
 <html>
     <head>
-            <title>Dit is een include/require oefening</title>
+            <title>mijn portfolio</title>
     </head> 
    
 
     <header>
             <h1> Dit is mijn portfolio oefening</h1>
-
     </header>

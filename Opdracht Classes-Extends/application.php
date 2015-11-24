@@ -3,9 +3,9 @@
 function __autoload($className){
 	include("classes/" . $className . ".php");
 }
-
+/*
 __autoload("Animal");
-__autoload("Lion");
+__autoload("Lion");*/
 
 $lion = new Animal("johan", "man", 10);
 $cat = new Animal("bert", "vrouw", 50);

@@ -1,12 +1,11 @@
 <?php
 	
 
-	function __autoLoad($filename)
+	function __autoload($filename)
 	{
 		include "classes/".$filename . ".php";
 	}
 
-	__autoLoad("HTMLbuilder");
 
 	$pagina = new HTMLbuilder("header-partial.php", "body-partial.php", "footer-partial.php");
 
