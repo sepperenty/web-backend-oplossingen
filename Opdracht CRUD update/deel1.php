@@ -60,7 +60,7 @@
 			}
 			else
 			{
-				$updateMessage = "wijzigen Brouwerij Mislukt";
+				$updateMessage = "Aanpassing is niet gelukt. Probeer opnieuw of neem contact op met de systeembeheerder wanneer deze fout blijft aanhouden sepperenty@hotmail.com";
 			}
 
 		}
@@ -133,15 +133,23 @@
 		margin-left: auto;
 		margin-right: auto;
 		border: 1px solid gray;
-		border-radius: 2px
+		border-radius: 2px;
+		  border-collapse: collapse;
+	}
+
+	
+
+	td{
+		padding: 5px;
+		border: 1px solid black;
 	}
 
 	table thead{
-		background-color: blue;
+		background-color: #aeabab;
 		text-align: center;
 	}
 
-	tr:nth-child(odd) {background: gray; color: white;}
+	tbody tr:nth-child(odd) {background: gray; color: white;}
 	.deleteButton{
 
 	background-image: url ('img/delete.png');

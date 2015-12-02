@@ -73,19 +73,34 @@
 		margin-left: auto;
 		margin-right: auto;
 		border: 1px solid gray;
-		border-radius: 2px
+		border-radius: 2px;
+		  border-collapse: collapse;
+	}
+
+	
+
+	td{
+		padding: 5px;
+		border: 1px solid black;
 	}
 
 	table thead{
-		background-color: blue;
+		background-color: #aeabab;
 		text-align: center;
 	}
 
-	tr:nth-child(odd) {background: gray; color: white;}
+	tbody tr:nth-child(odd) {background: gray; color: white;}
 	.deleteButton{
 
 	background-image: url ('img/delete.png');
 
+	}
+
+	.formDiv{
+		margin-left: auto;
+		margin-right: auto;
+		width: 800px;
+		margin-bottom: 50px;
 	}
 
 	</style>
