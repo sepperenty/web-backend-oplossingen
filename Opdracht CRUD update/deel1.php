@@ -36,12 +36,12 @@
 		if(isset($_POST["validate"]))
 		{
 			$updateQuery = 'UPDATE brouwers
-									SET brnaam 			=	:brnaam,
+									SET     brnaam 		=	:brnaam,
 											adres		=	:adres,
 											postcode	=	:postcode,
 											gemeente	=	:gemeente,
 											omzet		=	:omzet
-									WHERE brouwernr	= :brouwernr
+									WHERE   brouwernr	=   :brouwernr
 									LIMIT 1';
 			$updateBrouwerStatement = $db->prepare($updateQuery);
 
@@ -171,6 +171,7 @@
 	<h1> Overzicht van de brouwers </h1>
 	
 	<div class="setcenter">
+
 			<?php if (isset($_GET["delete"])): ?>
 			<p>Are you shore you want to delete brouwer with number <?= $_GET["delete"]?> ?</p>
 			<a  href="deel1.php?confirmation=<?=$_GET['delete']?>">Yes</a>
@@ -179,6 +180,7 @@
 			<?php if(isset($_GET["confirmation"])):?>
 			<p><?=$deleteMessage?></p>
 			<?php endif ?>
+
 	</div>
 	<div class="formDiv">
 
@@ -211,7 +213,10 @@
 		<?php if(isset($_POST["validate"])):?>
 			<p><?=$updateMessage?></p>
 		<?php endif ?>
+		
+		
 	</div>
+
 		<table>
 			<thead>
 				
