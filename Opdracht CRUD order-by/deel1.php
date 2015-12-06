@@ -17,7 +17,7 @@
 				
 			}
 			
-			$orderQuery = $orderBy . " " . $orderDir;
+		$orderQuery = " " . $orderBy . " " . $orderDir;
 
 			if(isset($_GET["order"]))
 			{
@@ -43,13 +43,13 @@
 							ON bieren.brouwernr	= brouwers.brouwernr
 							INNER JOIN soorten
 							ON bieren.soortnr = soorten.soortnr
-							order by " . $orderQuery;
+							order by".$orderQuery;
 
 
 
+
+	
 		$bierStatement = $db->prepare($sql);
-
-		
 		$bierStatement->execute();
 		$bierenInfo = array();
 
@@ -84,14 +84,25 @@
 		border-radius: 2px;
 		  border-collapse: collapse;
 	}
-	td{
-		padding: 5px;
+	td, th{
+		padding: 10px;
 		border: 1px solid black;
 	}
 
 	table thead{
-		background-color: #aeabab;
+		/*background-color: #aeabab;*/
 		text-align: center;
+	}
+
+	.asc{
+		background:	no-repeat url('img/icon-desc.png') right;
+		background-size: 20px;
+	}
+
+	.desc{
+
+		background:	no-repeat url('img/icon-asc.png') right;
+		background-size: 20px;
 	}
 
 	tbody tr:nth-child(odd) {background: gray; color: white;}
@@ -104,11 +115,11 @@
 
 		<thead>
 			<tr>
-				<td><a href="deel1.php?order=biernr <?=$orderDir?>">Biernummer</a></td>
-				<td><a href="deel1.php?order=naam <?=$orderDir?>">Bier</a></td>
-				<td><a href="deel1.php?order=brnaam <?=$orderDir?>">Brouwer</a></td>
-				<td><a href="deel1.php?order=soort <?=$orderDir?>">Soort</a></td>
-				<td><a href="deel1.php?order=alcohol <?=$orderDir?>">AlcoholPercentage</a></td>
+				<th class=<?php if($orderDir == "ASC"):?> "asc" <?php else:?> "desc" <?php endif?>><a href="deel1.php?order=biernr <?=$orderDir?>">Biernummer</a></th>
+				<th class=<?php if($orderDir == "ASC"):?> "asc" <?php else:?> "desc" <?php endif?>><a href="deel1.php?order=naam <?=$orderDir?>">Bier</a></th>
+				<th class=<?php if($orderDir == "ASC"):?> "asc"  <?php else:?> "desc"<?php endif?>><a href="deel1.php?order=brnaam <?=$orderDir?>">Brouwer</a></th>
+				<th class=<?php if($orderDir == "ASC"):?> "asc"  <?php else:?> "desc"<?php endif?>><a href="deel1.php?order=soort <?=$orderDir?>">Soort</a></th>
+				<th class=<?php if($orderDir == "ASC"):?> "asc"  <?php else:?> "desc"<?php endif?>><a href="deel1.php?order=alcohol <?=$orderDir?>">AlcoholPercentage</a></th>
 			<tr>
 		</thead>
 		<tbody>
