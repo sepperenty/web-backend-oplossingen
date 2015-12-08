@@ -1,0 +1,25 @@
+ul{
+	list-style-type:none
+}
+
+ul li{
+	margin-top: 20px;
+}
+
+.artikel {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+	padding: 10px;
+}
+
+.artikel p {
+	margin-bottom: 20px;
+
+	
+}
+
+.notActiveColor{
+	background-color: #eae8e8;
+}

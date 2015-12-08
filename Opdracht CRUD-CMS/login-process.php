@@ -14,7 +14,7 @@
 
 			try{
 
-				$db = new PDO('mysql:host=localhost;dbname=opdracht-security-login', 'root', 'root');
+				$db = new PDO('mysql:host=localhost;dbname=opdracht-crud-cms', 'root', 'root');
 
 				$checkQuery = "SELECT email from users where email = :email";
 				$checkQueryStatement = $db->prepare($checkQuery);

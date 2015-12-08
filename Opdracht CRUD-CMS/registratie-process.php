@@ -50,7 +50,7 @@ session_start();
 				
 				try 
 				{
-					$db = new PDO('mysql:host=localhost;dbname=opdracht-security-login', 'root', 'root');
+					$db = new PDO('mysql:host=localhost;dbname=opdracht-crud-cms', 'root', 'root');
 					$emailQuery = "SELECT email FROM users WHERE email like :email";
 					$emailStatement = $db->prepare($emailQuery);
 					$emailStatement->bindParam(":email", $email);
@@ -86,7 +86,7 @@ session_start();
 
 						$hashedEmailSalt = openssl_digest($email . $randomSalt, 'sha512');
 
-						setcookie("login", $email . "," . $hashedEmailSalt, , time()+2592000);
+						setcookie("login", $email . "," . $hashedEmailSalt, time()+2592000);
 
 						unset($_SESSION["registration"]);
 

@@ -13,8 +13,6 @@
 				$orderAr = explode(" ", $_GET["order"]);
 				$orderBy = $orderAr[0];
 				$orderDir = $orderAr[1];
-
-				
 			}
 			
 		$orderQuery = " " . $orderBy . " " . $orderDir;
