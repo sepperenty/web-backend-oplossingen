@@ -36,7 +36,7 @@ session_start();
 
 		else
 		{
-			unset($_COOKIE["login"]);
+			setcookie("login", null, -1);
 			$_SESSION["notifications"]["type"] = "error";
 			$_SESSION["notifications"]["message"] = "Something went wrong with your validation, please contact the webmaster";
 		}
