@@ -50,7 +50,7 @@ session_start();
 				
 				try 
 				{
-					$db = new PDO('mysql:host=localhost;dbname=opdracht-security-login', 'root', 'root');
+					$db = new PDO('mysql:host=localhost;dbname=opdracht_file_upload', 'root', 'root');
 					$emailQuery = "SELECT email FROM users WHERE email like :email";
 					$emailStatement = $db->prepare($emailQuery);
 					$emailStatement->bindParam(":email", $email);
@@ -82,15 +82,25 @@ session_start();
 						$insertStatement->bindParam(":email", $email);
 						$insertStatement->bindParam(":salt", $randomSalt);
 						$insertStatement->bindParam(":hashed_password", $hashed_pass);
-						$insertStatement->execute();
+						$succes = $insertStatement->execute();
 
-						$hashedEmailSalt = openssl_digest($email . $randomSalt, 'sha512');
+						if($succes)
+						{
 
-						setcookie("login", $email . "," . $hashedEmailSalt, time()+2592000);
+							$hashedEmailSalt = openssl_digest($email . $randomSalt, 'sha512');
+							setcookie("login", $email . "," . $hashedEmailSalt, time()+2592000);
+							unset($_SESSION["registration"]);
+							header("location: dashboard.php");
+						}
 
-						unset($_SESSION["registration"]);
+						else
+						{
+							$_SESSION["notifications"]["type"] = "error";
+							$_SESSION["notifications"]["message"] = "problem with database insertion";
 
-						header("location: dashboard.php");
+							header("location: registreer.php");
+						}
+
 
 					}
 

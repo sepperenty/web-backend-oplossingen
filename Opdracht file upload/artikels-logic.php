@@ -9,7 +9,7 @@ session_start();
 		$cookieString = $userInformation[1];
 		$validationComplete = false;
 
-		$db = new PDO('mysql:host=localhost;dbname=opdracht-crud-cms', 'root', 'root');
+		$db = new PDO('mysql:host=localhost;dbname=opdracht_file_upload', 'root', 'root');
 		$cookieCheck = "SELECT salt from users where email = :email";
 		$cookieCheckStatement = $db->prepare($cookieCheck);
 		$cookieCheckStatement->bindParam(":email", $userInformation[0]);
@@ -21,6 +21,8 @@ session_start();
 		{
 					$saltAr[] = $row;
 		}
+
+		
 		
 		$salt = $saltAr[0]["salt"];
 

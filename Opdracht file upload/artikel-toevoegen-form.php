@@ -18,10 +18,11 @@
 
 	if(isset($_SESSION["notifications"]))
 	{
-		echo "type: " . $_SESSION["notifications"]["type"];
+		echo "type : " . $_SESSION["notifications"]["type"];
 		echo " message : " . $_SESSION["notifications"]["message"];
-
+		unset($_SESSION["notifications"]);
 	}
+
 ?>
 
 <!doctype html>
@@ -39,6 +40,7 @@
 		<h1>Artikel toevoegen</h1>
 
 		<form action ="artikel-toevoegen-process.php" method="post">
+			<input type="hidden" value="<?=$email?>" name="auteur">
 			<ul>
 				<li>
 					<label for="titel">Titel</label></br>
@@ -46,15 +48,15 @@
 				</li>	
 				<li>
 					<label for="artikel">Artikel</label></br>
-					<textarea name="Artikel" value="<?=$artikel?>">
+					<input type="text" name="artikel" value="<?=$artikel?>">
 				</li>	
 				<li>
 					<label for="kernwoorden">Kernwoorden</label></br>
 					<input type="text" name="kernwoorden" value="<?=$kernwoorden?>">
 				</li>	
 				<li>
-					<label for="datum">Datum (dd-mm-jjjj)</label></br>
-					<input type="text" name="titel" value="<?=$datum?>">
+					<label for="datum">Datum (jjjj-mm-dd)</label></br>
+					<input type="text" name="datum" value="<?=$datum?>">
 				</li>	
 				<li>
 					<input type="submit" name="artikelToevoegen" value="Artikel toevoegen">
