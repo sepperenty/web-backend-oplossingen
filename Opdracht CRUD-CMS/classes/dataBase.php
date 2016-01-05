@@ -27,26 +27,35 @@
   		{
   			$getArray = array();
   			$sqlGetter = "";
+        $getStatement ="";
   			if($where)
   			{
-  				$sqlGetter = "SELECT " . $what . " from " . $table . " where " . $whereCheck . " = " . $whereSpec;
+  				$sqlGetter = "SELECT :what from :table where :whereCheck = :whereSpec";
+          $getStatement = $this->db->prepare($sqlGetter);
+          $getStatement->bindParam(":what", $what);
+          $getStatement->bindParam(":table", $table);
+          $getStatement->bindParam(":whereCheck", $whereCheck);
+          $getStatement->bindParam(":whereSpec", $whereSpec);
+          
   			}
 
   			else
   			{
 
-  				$sqlGetter = "SELECT " . $what . " from " . $table;
+  				$sqlGetter = "SELECT :what from :table";
+          $getStatement = $this->db->prepare($sqlGetter);
+          $getStatement->bindParam(":what", $what);
+          $getStatement->bindParam(":table", $table);
   			}
 
-  			$getStatement = $this->db->prepare($sqlGetter);
-  			$getStatement->execute();
+  		  $succes = $getStatement->execute();
 
     		while($row = $getStatement->fetch(PDO::FETCH_ASSOC))
   			{
   						$getArray[] = $row;
   			}
 
-  			return $getArray;
+  			return $succes;
     	}
 
 

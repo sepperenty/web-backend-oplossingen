@@ -122,9 +122,6 @@ session_start();
 												});
 
 													
-												
-												
-													
 											}
 
 											else
@@ -135,22 +132,10 @@ session_start();
 
 								})
 						return false;
-			
-
 				});
-
-
-
 		});
 
 		</script>
 		</body>
 		
-
-
-	
-
-
-
-
 </html>

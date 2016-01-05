@@ -7,8 +7,8 @@
 
 	$dataBase = new dataBase();
 
-	/*var_dump($dataBase->getRow("titel, artikel", "artikels", true, 13, "id"));
-*/
+	var_dump($dataBase->getRow("*", "artikels"));
+
 	
 	if(isset($_POST["artikelToevoegen"]))
 	{
@@ -20,7 +20,7 @@
 		var_dump($dataBase->insert("artikels", "titel, kernwoorden, artikel, auteur, datum", "'" . $titel . "','" 
 			. $kernWoorden . "','" . $artikel . "','" . "sepperenty@hotmail.com" . "','" . $datum . "'"));
 		
-}
+	}
 
 	
 ?>
@@ -31,7 +31,7 @@
 
 	<head>
 
-		<title>Framewordk test</title>
+		<title>Classe database test</title>
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
