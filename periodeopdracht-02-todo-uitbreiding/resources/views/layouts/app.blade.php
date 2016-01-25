@@ -11,7 +11,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
+
     <!-- Styles -->
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
@@ -44,9 +46,9 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
+
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ url('/tasks') }}">tasks</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -56,20 +58,32 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul>
-                        </li>
+
+
+                        <ul class="nav navbar-nav">
+                            <li> <a href="dashboard">
+                                    Dashboard
+                                </a></li>
+                            <li> <a href="{{ url('/logout') }}">(logout){{ Auth::user()->email }}</a>
+                            </li>
+                            <li><a href="tasks">
+                                    todo
+                                </a></li>
+                        </ul>
+
                     @endif
                 </ul>
+
             </div>
         </div>
     </nav>
+
+    @if(Session::has("notification"))
+
+           <div class="success"> <p>{{Session::get("notification")}}</p> </div>
+
+    @endif
 
     @yield('content')
 

@@ -32,7 +32,12 @@ class TaskController extends Controller
         return view('tasks.index', compact("tasks", "doneTasks"));
     }
 
-    public function store(Request $request)
+    public function add()
+    {
+        return view("tasks.add");
+    }
+
+    public function addNew(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|max:255',
@@ -43,6 +48,7 @@ class TaskController extends Controller
             'done' => "0",
         ]);
 
+        \Session::flash("notification", "your task is created");
         return redirect("/tasks");
         //create task
     }
@@ -51,6 +57,7 @@ class TaskController extends Controller
     {
         $this->authorize("destroy", $task);
         $task->delete();
+        \Session::flash("notification", "your task is destroyed");
         return redirect("/tasks");
     }
 
@@ -59,6 +66,7 @@ class TaskController extends Controller
         $this->authorize("done", $task);
         $task->done = "1";
         $task->save();
+        \Session::flash("notification", "your task is changed from undone to done");
         return redirect("/tasks");
     }
 
@@ -67,6 +75,14 @@ class TaskController extends Controller
         $this->authorize("done", $task);
         $task->done = "0";
         $task->save();
+        \Session::flash("notification", "your task is changed from done to undone");
         return redirect("/tasks");
     }
+
+    public function dashboard()
+    {
+        return view("tasks.dashboard");
+    }
+
+
 }

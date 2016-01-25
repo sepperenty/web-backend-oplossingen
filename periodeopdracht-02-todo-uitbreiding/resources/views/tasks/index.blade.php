@@ -6,40 +6,30 @@
 
         <!-- Bootstrap Boilerplate... -->
 
+
+
 <div class="panel-body">
     <!-- Display Validation Errors -->
     @include('common.errors')
 
-            <!-- New Task Form -->
-    <form action="{{ url('task') }}" method="POST" class="form-horizontal">
-        {{ csrf_field() }}
 
-                <!-- Task Name -->
-        <div class="form-group">
-            <label for="task-name" class="col-sm-3 control-label">Task</label>
+       <h1>De TODO-app</h1>
 
-            <div class="col-sm-6">
-                <input type="text" name="name" id="task-name" class="form-control">
-            </div>
-        </div>
-
-        <!-- Add Task Button -->
-        <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-6">
-                <button type="submit" class="btn btn-default">
-                    <i class="fa fa-plus"></i> Add Task
-                </button>
-            </div>
-        </div>
-    </form>
 </div>
+
+@if(count($tasks) > 0 || count($doneTasks) > 0)
+
+    <a id="newTaskLink" href="tasks/add">Nieuwe task</a>
 
 <!-- TODO: Current Tasks -->
 
+
+
+
 @if (count($tasks) > 0)
-    <div class="panel panel-default">
+    <div class="panel panel-default todoList">
         <div class="panel-heading">
-            Current Tasks
+           <h3> Current Tasks</h3>
         </div>
 
         <div class="panel-body">
@@ -90,13 +80,16 @@
             </table>
         </div>
     </div>
+    @else
+    <p  class="message">Alright, all done</p>
 @endif
+
 
 
 @if (count($doneTasks) > 0)
     <div class="panel panel-default">
         <div class="panel-heading">
-            Done Tasks
+            <h3> Done Tasks</h3>
         </div>
 
         <div class="panel-body">
@@ -147,6 +140,14 @@
             </table>
         </div>
     </div>
-@endif
 
+    @else
+
+    <p class="message">Damn, werk aan de winkel...</p>
+@endif
+@else
+
+        <p id="newTaskLink">Nog geen tasks  <a href="tasks/add">Nieuwe task toevoegen</a>  </p>
+
+@endif
 @endsection
