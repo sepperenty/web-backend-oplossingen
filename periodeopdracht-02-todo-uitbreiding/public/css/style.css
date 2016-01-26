@@ -34,3 +34,10 @@
 .welcomeMessage{
     margin-top: 10px;
 }
+
+.done{
+    text-decoration: line-through;
+}
+.addTask{
+    margin-top: 20px;
+}

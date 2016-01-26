@@ -46,11 +46,11 @@
                 @foreach ($tasks as $task)
                     <tr>
                         <!-- Task Name -->
-                        <td class="table-text">
+                        <td class="table-text col-md-5">
                             <div>{{ $task->name }}</div>
                         </td>
 
-                        <td>
+                        <td class="col-md-5">
                             <form action="{{ url('task/'.$task->id) }}" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
@@ -106,11 +106,11 @@
                 @foreach ($doneTasks as $task)
                     <tr>
                         <!-- Task Name -->
-                        <td class="table-text">
-                            <div>{{ $task->name }}</div>
+                        <td class="table-text col-md-5">
+                            <div><p class="done">{{ $task->name }}</p></div>
                         </td>
 
-                        <td>
+                        <td class="col-md-5">
                             <form action="{{ url('task/'.$task->id) }}" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}

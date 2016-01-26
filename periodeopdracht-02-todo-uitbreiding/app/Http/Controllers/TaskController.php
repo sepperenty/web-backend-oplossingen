@@ -66,7 +66,7 @@ class TaskController extends Controller
         $this->authorize("done", $task);
         $task->done = "1";
         $task->save();
-        \Session::flash("notification", "your task is changed from undone to done");
+        \Session::flash("notification", "your task is made done");
         return redirect("/tasks");
     }
 
@@ -75,7 +75,7 @@ class TaskController extends Controller
         $this->authorize("done", $task);
         $task->done = "0";
         $task->save();
-        \Session::flash("notification", "your task is changed from done to undone");
+        \Session::flash("notification", "your task is made undone");
         return redirect("/tasks");
     }
 
